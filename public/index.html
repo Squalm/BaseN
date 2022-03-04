@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Learn to do maths in any number base!</title>
+
+        <link href="style.css" rel="stylesheet" type="text/css" />
+
+    </head>
+    <body>
+        <div id="main">
+            <span id="question"></span><span id="mark"></span><br>
+            <input id="answer" onchange="check(this)">
+        </div>
+    
+        <br>
+
+        <div id="options">
+            <span>Limit (decimal):</span>
+            <input type="number" id="limit" class="options" onchange="newq()">
+            <br>
+            <span>Base:</span>
+            <input type="number" id="base" class="options" onchange="newq()" min="2" max="32">
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+</html>

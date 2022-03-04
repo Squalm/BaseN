@@ -1,0 +1,40 @@
+body {
+    background-color: #2e4052;
+    text-align: center;
+    color: #ffc857;
+    font-size: 3vh;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+input {
+    text-align: center;
+    font-size: 10vh;
+    width: 80vw;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #ffc857;
+    color: #2e4052;
+}
+
+#question {
+    font-size: 10vh;
+}
+
+#main {
+    position: absolute;
+    top: 10%;
+    left: 0;
+    right: 0;
+}
+
+.options {
+    font-size: 5vh;
+    width: 10vh;
+}
+
+#options {
+    position: absolute;
+    bottom: 5vh;
+    left: 0;
+    right: 0;
+
+}
