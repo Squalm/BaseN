@@ -40,7 +40,7 @@ input {
 
 }
 
-#history {
+#history, #words {
     font-size: 2vh;
     color: rgba(255, 200, 87, 0.5);
     z-index: -1;
@@ -48,4 +48,8 @@ input {
     padding-right: 10vw;
     text-align: justify;
     text-align-last: center;
+}
+
+#words {
+    margin-top: 0;
 }

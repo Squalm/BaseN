@@ -1,6 +1,10 @@
 let limit = 5;
 let base = 6;
+
 const ops = ["+", "-", "*", "/"];
+const ones = ["zero", "one", "two", "three", "four", "five"]
+const sixes = ["hex", "twixy", "thrixy", "fourxy", "fixy", "hundrex"]
+
 let ans = 0;
 let x;
 let y;
@@ -16,7 +20,8 @@ function newq(save) {
 
     if (save) {
         document.getElementById("history").innerHTML = 
-            x.toString(base) + op + y.toString(base) + "=" + ans.toString(base) + " " + document.getElementById("history").innerText;
+            x.toString(base) + op + y.toString(base) + "=" + 
+            ans.toString(base) + " " + document.getElementById("history").innerText;
     }
 
     if (document.getElementById("limit").value != "") {
@@ -43,14 +48,14 @@ function newq(save) {
             x = Math.floor(Math.random() * limit) + 1;
             y = Math.floor(Math.random() * limit) + 1;
         }
-    } else {
-        while (x == 0 || y == 0) {
-            x = Math.floor(Math.random() * limit) + 1;
-            y = Math.floor(Math.random() * limit) + 1;
-        }
     }
 
     document.getElementById("question").innerHTML = x.toString(base) + op + y.toString(base);
+
+    if (base == 6 && x.toString(base).length <= 3 && y.toString(base).length <= 3) {
+        let words = toWords(x) + " " + op + " " + toWords(y);
+        document.getElementById("words").innerHTML = words;        
+    }
 
     ans = 0;
     if (op == "+") { ans = x + y }
@@ -61,6 +66,30 @@ function newq(save) {
     
     return ans;
 
+}
+
+function toWords(k) {
+    let s = k.toString(base);
+    let out = "";
+
+    if (s.length == 3) {
+        out += ones[parseInt(s[0], 10)] + " " + sixes[5] + " "
+        if (s[1] != 0) {
+            out += sixes[parseInt(s[1], 10)-1] + " ";
+        }
+        if (s[2] != 0) {
+            out += ones[parseInt(s[2], 10)];
+        }
+    } else if (s.length == 2) {
+        out += sixes[parseInt(s[0], 10)-1] + " ";
+        if (s[1] != 0) {
+            out += ones[parseInt(s[1], 10)];
+        }
+    } else {
+        out += ones[parseInt(s[0], 10)];
+    }
+    
+    return out;
 }
 
 function check(field) {
