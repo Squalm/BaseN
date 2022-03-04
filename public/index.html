@@ -13,16 +13,17 @@
         <div id="main">
             <span id="question"></span><span id="mark"></span><br>
             <input id="answer" onchange="check(this)">
+            <p id="history"></p>
         </div>
-    
+
         <br>
 
         <div id="options">
             <span>Limit (decimal):</span>
-            <input type="number" id="limit" class="options" onchange="newq()">
+            <input type="number" id="limit" class="options" onchange="newq(true)">
             <br>
             <span>Base:</span>
-            <input type="number" id="base" class="options" onchange="newq()" min="2" max="32">
+            <input type="number" id="base" class="options" onchange="newq(true)" min="2" max="32">
         </div>
 
         <script src="script.js"></script>

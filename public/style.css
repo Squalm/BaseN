@@ -11,8 +11,8 @@ input {
     font-size: 10vh;
     width: 80vw;
     font-family: 'Courier New', Courier, monospace;
-    background-color: #ffc857;
-    color: #2e4052;
+    background-color: rgb(255, 200, 87);
+    color: rgb(46, 64, 82);
 }
 
 #question {
@@ -37,4 +37,14 @@ input {
     left: 0;
     right: 0;
 
+}
+
+#history {
+    font-size: 2vh;
+    color: rgba(255, 200, 87, 0.5);
+    z-index: -1;
+    padding-left: 10vw;
+    padding-right: 10vw;
+    text-align: justify;
+    text-align-last: center;
 }

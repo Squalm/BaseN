@@ -2,13 +2,22 @@ let limit = 5;
 let base = 6;
 const ops = ["+", "-", "*"];
 let ans = 0;
+let x;
+let y;
+let op;
+
 
 window.onload = () => {
     ans = newq();
     document.getElementById("mark").innerHTML = "b" + base.toString();
 }
 
-function newq() {
+function newq(save) {
+
+    if (save) {
+        document.getElementById("history").innerHTML = 
+            x.toString(base) + op + y.toString(base) + "=" + ans.toString(base) + " " + document.getElementById("history").innerText;
+    }
 
     if (document.getElementById("limit").value != "") {
         limit = parseInt(document.getElementById("limit").value);
@@ -19,9 +28,9 @@ function newq() {
     }
     document.getElementById("answer").value = "";
 
-    let op = ops[Math.floor(Math.random() * ops.length)];
-    let x = Math.floor(Math.random() * (limit + 1));
-    let y = Math.floor(Math.random() * (limit + 1));
+    op = ops[Math.floor(Math.random() * ops.length)];
+    x = Math.floor(Math.random() * (limit + 1));
+    y = Math.floor(Math.random() * (limit + 1));
     document.getElementById("question").innerHTML = x.toString(base) + op + y.toString(base);
 
     ans = 0;
@@ -38,7 +47,7 @@ function newq() {
 function check(field) {
 
     if (field.value == ans.toString(base)) { 
-        newq();
+        newq(true);
     }
 
 }
