@@ -24,12 +24,12 @@ function newq(save) {
             ans.toString(base) + " " + document.getElementById("history").innerText;
     }
 
-    if (document.getElementById("limit").value != "") {
-        limit = parseInt(document.getElementById("limit").value);
-    }
     if (document.getElementById("base").value != "" && document.getElementById("base").value != "1") {
         base = parseInt(document.getElementById("base").value);
         document.getElementById("mark").innerHTML = "b" + base.toString();
+    }
+    if (document.getElementById("limit").value != "") {
+        limit = parseInt(document.getElementById("limit").value);
     }
     document.getElementById("answer").value = "";
 
@@ -52,9 +52,11 @@ function newq(save) {
 
     document.getElementById("question").innerHTML = x.toString(base) + op + y.toString(base);
 
-    if (base == 6 && x.toString(base).length <= 3 && y.toString(base).length <= 3) {
+    if (base == 6 && x.toString(base).length <= 4 && y.toString(base).length <= 4) {
         let words = toWords(x) + " " + op + " " + toWords(y);
         document.getElementById("words").innerHTML = words;        
+    } else {
+        document.getElementById("words").innerHTML = "";
     }
 
     ans = 0;
@@ -72,7 +74,20 @@ function toWords(k) {
     let s = k.toString(base);
     let out = "";
 
-    if (s.length == 3) {
+    // Go through diff lengths and parse as necessary
+    if (s.length == 4) {
+        out += sixes[parseInt(s[0], 10)-1] + " ";
+        if (s[1] != 0) {
+            out += ones[parseInt(s[1], 10)] + " ";
+        }
+        out += sixes[5] + " "
+        if (s[2] != 0) {
+            out += sixes[parseInt(s[2], 10)-1] + " ";
+        }
+        if (s[3] != 0) {
+            out += ones[parseInt(s[3], 10)];
+        }
+    } else if (s.length == 3) {
         out += ones[parseInt(s[0], 10)] + " " + sixes[5] + " "
         if (s[1] != 0) {
             out += sixes[parseInt(s[1], 10)-1] + " ";
