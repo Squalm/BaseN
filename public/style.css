@@ -4,6 +4,7 @@ body {
     color: #ffc857;
     font-size: 3vh;
     font-family: 'Courier New', Courier, monospace;
+    overflow: hidden;
 }
 
 input {
