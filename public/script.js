@@ -1,6 +1,6 @@
 let limit = 5;
 let base = 6;
-const ops = ["+", "-", "*"];
+const ops = ["+", "-", "*", "/"];
 let ans = 0;
 let x;
 let y;
@@ -29,8 +29,27 @@ function newq(save) {
     document.getElementById("answer").value = "";
 
     op = ops[Math.floor(Math.random() * ops.length)];
-    x = Math.floor(Math.random() * (limit + 1));
-    y = Math.floor(Math.random() * (limit + 1));
+    x = Math.floor(Math.random() * limit) + 1;
+    y = Math.floor(Math.random() * limit) + 1;
+
+    // Acount for trivial values
+    if (op == "/") {
+        while (x % y != 0 || y == 1) {
+            x = Math.floor(Math.random() * limit) + 1;
+            y = Math.floor(Math.random() * limit) + 1;
+        }
+    } else if (op == "*" && limit > 1) {
+        while (x == 1 || y == 1 || x == 0 || y == 0) {
+            x = Math.floor(Math.random() * limit) + 1;
+            y = Math.floor(Math.random() * limit) + 1;
+        }
+    } else {
+        while (x == 0 || y == 0) {
+            x = Math.floor(Math.random() * limit) + 1;
+            y = Math.floor(Math.random() * limit) + 1;
+        }
+    }
+
     document.getElementById("question").innerHTML = x.toString(base) + op + y.toString(base);
 
     ans = 0;
