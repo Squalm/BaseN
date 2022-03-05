@@ -80,7 +80,7 @@ function toWords(k) {
         if (s[1] != 0) {
             out += ones[parseInt(s[1], 10)] + " ";
         }
-        out += sixes[5] + " "
+        out += sixes[5] + " and "
         if (s[2] != 0) {
             out += sixes[parseInt(s[2], 10)-1] + " ";
         }
@@ -88,7 +88,7 @@ function toWords(k) {
             out += ones[parseInt(s[3], 10)];
         }
     } else if (s.length == 3) {
-        out += ones[parseInt(s[0], 10)] + " " + sixes[5] + " "
+        out += ones[parseInt(s[0], 10)] + " " + sixes[5] + " and "
         if (s[1] != 0) {
             out += sixes[parseInt(s[1], 10)-1] + " ";
         }
