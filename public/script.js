@@ -3,7 +3,7 @@ let base = 6;
 
 const ops = ["+", "-", "*", "/"];
 const ones = ["zero", "one", "two", "three", "four", "five"]
-const sixes = ["six", "douzen", "thirsy", "foursy", "fisy", "nif"]
+const sixes = ["six", "dozen", "thirsy", "foursy", "fisy", "nif"]
 
 let ans = 0;
 let x;
